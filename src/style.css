@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #000;
+  --secondary-color: #fff;
+  --highlight-color: #e74c3c;
+  --brand-gradient: linear-gradient(90deg, #484f39, #b55a7b);
+  --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+html {
+  transition: all 0.5s ease-in;
+}
+
+html.dark {
+  --primary-color: #fff;
+  --secondary-color: #333;
+}
+
+html.dark {
+  background-color: #111;
+  color: var(--primary-color);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.toggle {
+  cursor: pointer;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  border: 0;
+  border-radius: 4px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 20px;
+}
+
+.toggle:focus {
+  outline: none;
+}
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.clock-frame {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  height: 250px;
+  border: 6px solid var(--primary-color);
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+}
+
+.clock {
+  position: relative;
+  width: 200px;
+  height: 200px;
+}
+
+.needle {
+  background-color: var(--primary-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 65px;
+  width: 3px;
+  transform-origin: bottom center;
+  transition: all 0.5s ease-in linear;
+  z-index: 2;
+}
+
+.needle.hour {
+  transform: translate(-50%, -100%) rotate(0deg);
+}
+
+.needle.minute {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+}
+
+.needle.second {
+  transform: translate(-50%, -100%) rotate(0deg);
+  height: 100px;
+  background-color: var(--highlight-color);
+}
+
+.center-point {
+  background-color: var(--highlight-color);
+  width: 10px;
+  height: 10px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.time {
+  font-size: 60px;
+  margin-top: 20px;
+}
+
+.brand-name {
+  position: absolute;
+  top: 10%; /* Above the clock */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  background: var(--brand-gradient);
+  color: var(--secondary-color);
+  padding: 4px 12px;
+  border-radius: 5px;
+  letter-spacing: 1.5px;
+  box-shadow: var(--box-shadow);
+  z-index: 1;
+}
+
+/* Shaded Black & White Date Box */
+.date-box {
+  position: absolute;
+  bottom: 10%; /* Below the clock */
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, rgba(72, 72, 72, 0.7), rgba(255, 255, 255, 0.3)); /* Shaded B&W gradient */
+  color: var(--secondary-color);
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 1;
+  box-shadow: var(--box-shadow);
+}
